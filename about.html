@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it" x-data="{ menuOpen: false }" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Mauro Bianchi Fisioterapista</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- script slider -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-gray-800">
+  <!-- Header -->
+  <header class="top-0 w-full z-50 bg-white relative shadow-[0_0_20px_2px_rgba(0,0,0,0.2)] py-8 px-8">
+    <div class="max-w-full mx-auto flex justify-between items-center">
+        <a href="index.html"><div class="flex gap-[8px] items-center">
+            <iconify-icon icon="healthicons:body-24px" width="36" height="36"  style="color: #0273e5"></iconify-icon>
+            <h1 class="text-2xl font-bold">Dr. Mauro Bianchi</h1>
+        </div></a>
+
+    <!-- Hamburger -->
+    <button @click="open = !open" class="md:hidden" aria-label="Menu" x-data="{ open: false }">
+      <svg :class="{ 'hidden': open }" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg :class="{ 'hidden': !open }" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+
+      <!-- Menu mobile -->
+      <div
+        x-show="open"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-y-75"
+        x-transition:enter-end="opacity-100 scale-y-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 scale-y-100"
+        x-transition:leave-end="opacity-0 scale-y-75"
+        class="absolute top-full left-0 w-screen bg-white shadow-md origin-top flex flex-col text-center"
+        @click.away="open = false"
+        style="transform-origin: top;"
+      >
+        <a href="about.html" class="py-3 text-lg font-bold border-b text-gray-700">Chi sono</a>
+        <a href="services.html" class="py-3 text-lg font-bold border-b text-gray-700">Servizi</a>
+        <a href="index.html #contatti" class="py-3 text-lg font-bold text-gray-700">Contatti</a>
+        <a href="index.html #contatti" class="bg-[#5aa348] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#69b058] transition">Prenota una visita</a>
+      </div>
+    </button>
+
+    <!-- Menu desktop -->
+      <nav class="space-x-4 hidden md:block">
+        <a href="about.html" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Chi sono</a>
+        <a href="services.html" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Servizi</a>
+        <a href="index.html #contatti" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Contatti</a>
+        <a href="index.html #contatti" class="bg-[#5aa348] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#69b058] transition">Prenota una visita</a>
+      </nav>
+    </div>
+  </header>
+  <section id="intro" class="px-6 flex py-20 items-center justify-around flex-col gap-4">
+    <div>
+      <h2 class="text-3xl font-bold mb-4">Il mio percorso professionale</h2>
+      <p class="mb-6 text-xl text-gray-700">Scopri la mia formazione, esperienza e filosofia di lavoro. Un percorso dedicato alla continua crescita professionale per offrirti sempre il miglior trattamento possibile.</p>
+    </div>
+    <img class="max-w-2xl w-full mt-6 mb-10" src="assets/about1.jpg" alt="dottor bianchi fisioterapista">
+    <div>
+        <h2 class="text-3xl font-bold mb-4 text-center">Chi sono</h2>
+         <p class="mb-10 text-xl text-gray-700">Sono il Dr. Mauro Bianchi, nato a Roma nel 1987. La mia passione per la fisioterapia è nata durante gli anni del liceo, quando ho vissuto in prima persona l'importanza della riabilitazione dopo un infortunio sportivo. Questa esperienza ha plasmato la mia vocazione professionale e la mia filosofia di cura.</p>
+         <p class="mb-10 text-xl text-gray-700">Dopo il diploma scientifico, ho intrapreso il percorso universitario in Fisioterapia presso l'Università La Sapienza di Roma, dove mi sono laureato nel 2009 con il massimo dei voti. Durante gli studi universitari, ho sviluppato un particolare interesse per la terapia manuale e la riabilitazione ortopedica.</p>
+         <p class="mb-10 text-xl text-gray-700">Nel corso degli anni ho sempre creduto nell'importanza della formazione continua, partecipando a numerosi corsi di specializzazione e master per rimanere sempre aggiornato sulle più moderne tecniche riabilitative. Questa dedizione mi ha permesso di sviluppare competenze specifiche in diverse aree della fisioterapia.</p>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 bg-[#f9fbfc]">
+    <h2 class="text-3xl font-bold mb-10 text-center text-gray-900">Formazione Accademica</h2>
+    <div class="flex justify-center">
+    <div class="relative border-l-4 border-[#0273e5] ml-4 space-y-10 text-lg max-w-[600px]">
+        <div class="relative pl-6">
+            <div class="ml-4 border border-gray-200 px-6 py-3 rounded-lg bg-white">
+                <p class="text-[#0273e5] font-semibold">2009</p>
+                <h3 class="text-xl font-bold">Laurea in Fisioterapia</h3>
+                <p class="text-[#5aa348] font-semibold">Università La Sapienza, Roma</p>
+                <p class="text-gray-600 text-md">Tesi in riabilitazione ortopedica post-chirurgica con votazione 110/110 e lode</p>
+            </div>
+            <span class="absolute -left-[18px] top-1.5 w-8 h-8 bg-[#0273e5] rounded-full"></span>
+        </div>
+
+        <div class="relative pl-6">
+            <div class="ml-4 border border-gray-200 px-6 py-3 rounded-lg bg-white">
+                <p class="text-[#0273e5] font-semibold">2011</p>
+                <h3 class="text-xl font-bold">Master in Terapia Manuale</h3>
+                <p class="text-[#5aa348] font-semibold">ISTITUTO EUROPEO DI TERAPIA MANUALE</p>
+                <p class="text-gray-600 text-md">Specializzazione in tecniche manuali avanzate per il trattamento del sistema muscolo-scheletrico</p>
+            </div>
+            <span class="absolute -left-[18px] top-1.5 w-8 h-8 bg-[#0273e5] rounded-full"></span>
+        </div>
+
+        <div class="relative pl-6">
+            <div class="ml-4 border border-gray-200 px-6 py-3 rounded-lg bg-white">
+                <p class="text-[#0273e5] font-semibold">2013</p>
+                <h3 class="text-xl font-bold">Certificazione Maitland</h3>
+                <p class="text-[#5aa348] font-semibold">International Maitland Teachers Association</p>
+                <p class="text-gray-600 text-md">Approccio di mobilizzazione articolare e trattamento neurodinamico</p>
+            </div>
+            <span class="absolute -left-[18px] top-1.5 w-8 h-8 bg-[#0273e5] rounded-full"></span>
+        </div>
+
+        <div class="relative pl-6">
+            <div class="ml-4 border border-gray-200 px-6 py-3 rounded-lg bg-white">
+                <p class="text-[#0273e5] font-semibold">2017</p>
+                <h3 class="text-xl font-bold">Master in Fisioterapia Sportiva</h3>
+                <p class="text-[#5aa348] font-semibold">Università di Tor Vergata, Roma</p>
+                <p class="text-gray-600 text-md">Specializzazione nella prevenzione e cura degli infortuni sportivi</p>
+            </div>
+            <span class="absolute -left-[18px] top-1.5 w-8 h-8 bg-[#0273e5] rounded-full"></span>
+        </div>
+    </div>
+    </div>
+  </section>
+
+    <section class="px-6 py-16 bg-white">
+        <h2 class="text-3xl font-bold mb-10 text-center text-gray-900">Esperienza Professionale</h2>
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex flex-col items-start md:flex-row border border-gray-200 rounded-lg ml-4 text-lg max-w-[800px]">
+                <div class="bg-[#0273e5] text-white rounded-lg px-6 py-3 m-4 font-semibold min-w-[135px]">2009-2012</div>
+                <div class="m-4">
+                    <h3 class="text-xl font-bold">Fisioterapista</h3>
+                    <p class="text-[#5aa348] font-semibold">Ospedale San Giovanni, Roma</p>
+                    <p class="text-gray-600 text-md">Reparto di Ortopedia e Traumatologia. Gestione di pazienti post-operatori e in fase acuta</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-start md:flex-row border border-gray-200 rounded-lg ml-4 text-lg max-w-[800px]">
+                <div class="bg-[#0273e5] text-white rounded-lg px-6 py-3 m-4 font-semibold min-w-[135px]">2012-2018</div>
+                <div class="m-4">
+                    <h3 class="text-xl font-bold">Fisioterapista Senior</h3>
+                    <p class="text-[#5aa348] font-semibold">Centro Riabilitativo Aurelia, Roma</p>
+                    <p class="text-gray-600 text-md">Responsabile del reparto ambulatoriale. Coordinamento team di fisioterapisti junior.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-start md:flex-row border border-gray-200 rounded-lg ml-4 text-lg max-w-[800px]">
+                <div class="bg-[#0273e5] text-white rounded-lg px-6 py-3 m-4 font-semibold min-w-[165px]">2019-Presente</div>
+                <div class="m-4">
+                    <h3 class="text-xl font-bold">Libero Professionista</h3>
+                    <p class="text-[#5aa348] font-semibold">Studio Privato, Roma</p>
+                    <p class="text-gray-600 text-md">Gestione studio privato con focus su terapia manuale e riabilitazione personalizzata.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 bg-[#f9fbfc]">
+        <h2 class="text-3xl font-bold mb-10 text-center text-gray-900">Certificazioni e riconoscimenti</h2>
+        <div class="flex flex-col items-center gap-6">
+            <div class="flex gap-4 bg-white border border-gray-400 rounded-lg ml-4 text-lg max-w-[800px] px-6 py-3 w-[80%]">
+                <iconify-icon icon="mingcute:award-fill" width="32" height="32"  style="color: #5aa348"></iconify-icon>
+                <p class="text-gray-600 text-md">Fisioterapista iscritto all'Albo Professionale (n. 1224)</p>
+            </div>
+            <div class="flex gap-4 bg-white border border-gray-400 rounded-lg ml-4 text-lg max-w-[800px] px-6 py-3 w-[80%]">
+                <iconify-icon icon="mingcute:award-fill" width="32" height="32"  style="color: #5aa348"></iconify-icon>
+                <p class="text-gray-600 text-md">Certificazione Internazionale OMPT (Orthopedic Manipulative Physical Therapist)</p>
+            </div>
+            <div class="flex gap-4 bg-white border border-gray-400 rounded-lg ml-4 text-lg max-w-[800px] px-6 py-3 w-[80%]">
+                <iconify-icon icon="mingcute:award-fill" width="32" height="32"  style="color: #5aa348"></iconify-icon>
+                <p class="text-gray-600 text-md">Formatore certificato per corsi di terapia manuale</p>
+            </div>
+            <div class="flex gap-4 bg-white border border-gray-400 rounded-lg ml-4 text-lg max-w-[800px] px-6 py-3 w-[80%]">
+                <iconify-icon icon="mingcute:award-fill" width="32" height="32"  style="color: #5aa348"></iconify-icon>
+                <p class="text-gray-600 text-md">Membro della Società Italiana di Fisioterapia (SIF)</p>
+            </div>
+            <div class="flex gap-4 bg-white border border-gray-400 rounded-lg ml-4 text-lg max-w-[800px] px-6 py-3 w-[80%]">
+                <iconify-icon icon="mingcute:award-fill" width="32" height="32"  style="color: #5aa348"></iconify-icon>
+                <p class="text-gray-600 text-md">Attestato di Primo Soccorso e BLS-D</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-7 px-8 w-full z-50 shadow flex flex-col gap-4">
+    <div class="flex flex-col justify-between md:flex-row sm:flex-col gap-6">
+                            <div>
+                                <div class="flex gap-[8px] items-center">
+                                <iconify-icon icon="healthicons:body-24px" width="36" height="36"  style="color: #0273e5"></iconify-icon>
+                                <h1 class="text-2xl font-bold">Dr. Mauro Bianchi</h1>
+                                </div> 
+                                <p class="max-w-md mt-4">Fisioterapista specializzato con oltre 15 anni di esperienza nella riabilitazione ortopedica e terapia manuale. Il mio obiettivo è aiutarti a ritrovare il benessere e la mobilità ottimale.</p>
+                            </div>
+                            <div class="flex gap-6">
+                              <div>
+                                <h4 class="text-lg font-bold">Contatti</h4>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="line-md:phone-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>+39 06 1234 5678</p>
+                                </div>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="tdesign:location-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>Via Roma 123, 00100 Roma</p>
+                                </div>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="flowbite:envelope-solid" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>info@maurobianchifisio.it</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold">Orari</h4>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="tabler:clock-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>Lun-Ven: 8:00-19:00<br> Sab: 8:00-13:00<br>Dom: Chiuso</p>
+                                </div>
+                            </div>
+                          </div>
+                    </div>  
+                    </div>
+                    </div>
+                </div>
+            </div>
+          </hr>
+    <p class="text-center">© 2025 Dr. Mauro Bianchi - Fisioterapista. Tutti i diritti riservati.</p>
+</footer>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>

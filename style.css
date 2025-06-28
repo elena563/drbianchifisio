@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Inknut';
+  src: local('inknut'), url('/assets/InknutAntiqua-Regular.ttf') format('truetype');
+  font-display: block;
+}
+
+h1, h2{
+    font-family: 'Georgia';
+}
+
+:root {
+    --swiper-theme-color: #000;
+}
+main, #intro{
+  background: #D1E6FA;
+  background: linear-gradient(160deg, rgba(209, 230, 250, 1) 0%, rgba(255, 255, 255, 1) 100%);
+ }
+
+header {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it" x-data="{ menuOpen: false }" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Mauro Bianchi Fisioterapista</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- script slider -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-gray-800">
+  <!-- Header -->
+  <header class="top-0 w-full z-50 bg-white relative shadow-[0_0_20px_2px_rgba(0,0,0,0.2)] py-8 px-8">
+    <div class="max-w-full mx-auto flex justify-between items-center">
+        <a href="index.html"><div class="flex gap-[8px] items-center">
+            <iconify-icon icon="healthicons:body-24px" width="36" height="36"  style="color: #0273e5"></iconify-icon>
+            <h1 class="text-2xl font-bold">Dr. Mauro Bianchi</h1>
+        </div></a>
+
+    <!-- Hamburger -->
+    <button @click="open = !open" class="md:hidden" aria-label="Menu" x-data="{ open: false }">
+      <svg :class="{ 'hidden': open }" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg :class="{ 'hidden': !open }" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+
+      <!-- Menu mobile -->
+      <div
+        x-show="open"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-y-75"
+        x-transition:enter-end="opacity-100 scale-y-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 scale-y-100"
+        x-transition:leave-end="opacity-0 scale-y-75"
+        class="absolute top-full left-0 w-screen bg-white shadow-md origin-top flex flex-col text-center"
+        @click.away="open = false"
+        style="transform-origin: top;"
+      >
+        <a href="about.html" class="py-3 text-lg font-bold border-b text-gray-700">Chi sono</a>
+        <a href="services.html" class="py-3 text-lg font-bold border-b text-gray-700">Servizi</a>
+        <a href="index.html #contatti" class="py-3 text-lg font-bold text-gray-700">Contatti</a>
+        <a href="index.html #contatti" class="bg-[#5aa348] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#69b058] transition">Prenota una visita</a>
+      </div>
+    </button>
+
+    <!-- Menu desktop -->
+      <nav class="space-x-4 hidden md:block">
+        <a href="about.html" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Chi sono</a>
+        <a href="services.html" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Servizi</a>
+        <a href="index.html #contatti" class="text-lg font-bold hover:bg-[#e9effd] m-0 p-2 rounded-md hover:text-[#0273e5]">Contatti</a>
+        <a href="index.html #contatti" class="bg-[#5aa348] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#69b058] transition">Prenota una visita</a>
+      </nav>
+    </div>
+  </header>
+  <section id="intro" class="px-6 flex py-20 items-center justify-around flex-col gap-4">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">I miei servizi</h2>
+      <p class="mb-6 text-xl text-gray-700">Trattamenti specializzati e personalizzati per ogni esigenza riabilitativa. Scopri nel dettaglio tutte le terapie che offro per il tuo benessere.</p>
+    </div>
+    <div class="flex flex-col md:flex-row gap-4 justify-around">
+        <img class="max-w-[45%] mt-6 mb-10" src="assets/services1.jpg" alt="terapia">
+        <img class="max-w-[45%] mt-6 mb-10" src="assets/services2.jpg" alt="terapia">
+    </div>
+     </section>
+
+    <section class="px-6 py-16 bg-white">
+    <div x-data="{ open: 1 }" class="space-y-6 w-full mx-auto bg-white">
+    <div>
+        <button @click="open === 1 ? open = null : open = 1" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="meteor-icons:wave-pulse" width="48" height="48"  style="color: #0273e5"></iconify-icon>
+            <div>
+                <span class="text-2xl font-bold">Terapia Manuale</span>
+                <p>Tecniche manuali specializzate per il trattamento del sistema muscolo-scheletrico</p>
+            </div>
+        </button>
+        
+        <div
+            x-show="open === 1"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+        <p class="text-xl font-bold my-4">Tecniche e Metodologie</p>
+        <p class="text-blue-600 font-semibold">Mobilizzazione Articolare</p>
+        <p>Tecniche di mobilizzazione passiva e attiva per ripristinare il movimento articolare. Utilizzo del metodo Maitland per un approccio graduale e sicuro, adattato alle esigenze specifiche di ogni paziente.</p>
+        <p class="text-blue-600 font-semibold">Manipolazioni Vertebrali</p>
+        <p>Tecniche di manipolazione ad alta velocità e bassa ampiezza (HVLA) per il trattamento delle disfunzioni articolari vertebrali. Approccio sicuro e controllato per il ripristino della funzionalità.</p>
+        <p class="text-blue-600 font-semibold">Terapia Miofasciale</p>
+        <p>Trattamento delle tensioni e restrizioni del sistema fasciale attraverso tecniche manuali specifiche. Include rilascio miofasciale, stretching fasciale e tecniche di decompressione.</p>
+        <p class="text-blue-600 font-semibold">Neurodinamica</p>
+        <p>Valutazione e trattamento del sistema nervoso periferico attraverso test specifici e mobilizzazioni neurali per risolvere problematiche di intrappolamento nervoso.</p>
+
+        </div>
+    </div>
+
+    <div>
+        <button @click="open === 2 ? open = null : open = 2" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="jam:medical" width="48" height="48"  style="color: #0273e5"></iconify-icon>
+            <div>
+                <span class="text-2xl font-bold">Riabilitazione Ortopedica</span>
+                <p>Programmi di recupero funzionale post-operatorio e post-traumatico personalizzati</p>
+            </div>
+        </button>
+        
+        <div
+            x-show="open === 2"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+          <p class="text-xl font-bold my-4">Tecniche e Metodologie</p>
+        <p class="text-blue-600 font-semibold">Riabilitazione Post-Chirurgica</p> 
+        <p>Protocolli specifici per il recupero dopo interventi ortopedici. Gestione delle diverse fasi riabilitative dal post-operatorio immediato al ritorno alle attività quotidiane e sportive.</p>
+        <p class="text-blue-600 font-semibold">Recupero da Traumi</p> 
+        <p>Trattamento conservativo di lesioni muscolo-scheletriche acute e croniche. Programmi individualizzati per fratture, distorsioni, lussazioni e lesioni legamentose.</p>
+        <p class="text-blue-600 font-semibold">Rieducazione Funzionale</p> 
+        <p>Esercizi specifici per il recupero della forza, coordinazione ed equilibrio. Utilizzo di attrezzature specializzate per un approccio progressivo e sicuro.</p>
+        <p class="text-blue-600 font-semibold">Terapia del Dolore</p> 
+        <p>Approccio multimodale per la gestione del dolore cronico attraverso tecniche manuali, esercizio terapeutico e educazione del paziente.</p>
+
+        </div>
+    </div>
+
+    <div>
+        <button @click="open === 3 ? open = null : open = 3" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="fa6-solid:dumbbell" width="56" height="48"  style="color: #0273e5"></iconify-icon>
+        <div>
+            <span class="text-2xl font-bold">Fisioterapia Sportiva</span>
+            <p>Prevenzione, cura e recupero degli infortuni negli atleti di ogni livello</p>
+        </div>
+        </button>
+        
+        <div
+            x-show="open === 3"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+        <p class="text-xl font-bold mt-8 mb-4">Tecniche e Metodologie</p>
+        <p class="text-blue-600 font-semibold">Prevenzione Infortuni</p> 
+        <p>Programmi di screening funzionale e correzione degli squilibri muscolari. Analisi del movimento specifico per sport e implementazione di protocolli preventivi personalizzati.</p>
+        <p class="text-blue-600 font-semibold">Trattamento Infortuni Acuti</p> 
+        <p>Gestione immediata delle lesioni sportive secondo protocolli evidence-based. Approccio RICE modificato e tecniche di facilitazione della guarigione tessutale.</p>
+        <p class="text-blue-600 font-semibold">Return to Sport</p> 
+        <p>Protocolli specifici per il ritorno sicuro alla pratica sportiva. Test funzionali, progressione graduale dei carichi e valutazione biomeccanica del gesto atletico.</p>
+        <p class="text-blue-600 font-semibold">Performance Enhancement</p> 
+        <p>Ottimizzazione delle prestazioni attraverso il miglioramento della mobilità, stabilità e controllo motorio specifico per ogni disciplina sportiva.</p>
+        </div>
+    </div>
+
+    <div>
+        <button @click="open === 4 ? open = null : open = 4" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="lsicon:lightning-filled" width="48" height="48"  style="color: #0273e5"></iconify-icon>
+        <div>
+            <span class="text-2xl font-bold">Terapie Strumentali</span>
+            <p>Tecnologie avanzate per accelerare i processi di guarigione e ridurre il dolore</p>
+        </div>
+        </button>
+        
+        <div
+            x-show="open === 4"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+        <p class="text-xl font-bold mt-8 mb-4">Tecniche e Metodologie</p>
+        <p class="text-blue-600 font-semibold">Laser Terapia (LLLT)</p> 
+        <p>Utilizzo del laser a bassa intensità per stimolare i processi riparativi cellulari. Efficace per riduzione del dolore, infiammazione e accelerazione della guarigione tessutale.</p>
+        <p class="text-blue-600 font-semibold">Ultrasuoni Terapeutici</p> 
+        <p>Terapia con ultrasuoni per effetti termici e meccanici sui tessuti. Trattamento di tendinopatie, contratture e aderenze cicatriziali con parametri personalizzati.</p>
+        <p class="text-blue-600 font-semibold">Elettrostimolazione</p> 
+        <p>TENS per controllo del dolore, FES per rieducazione muscolare e correnti interferenziali per trattamento profondo. Programmi specifici per ogni tipologia di disfunzione.</p>
+        <p class="text-blue-600 font-semibold">Tecarterapia</p> 
+        <p>Diatermia a radiofrequenza per il trattamento profondo dei tessuti. Effetti biostimolanti, antinfiammatori e di aumento del metabolismo cellulare.</p>
+
+        </div>
+    </div>
+
+    <div>
+        <button @click="open === 5 ? open = null : open = 5" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="solar:heart-bold" width="48" height="48"  style="color: #0273e5"></iconify-icon>
+        <div>
+            <span class="text-2xl font-bold">Rieducazione Posturale</span>
+            <p>Correzione degli squilibri posturali per prevenire dolori e disfunzioni</p>
+        </div>
+        </button>
+        
+        <div
+            x-show="open === 5"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+        <p class="text-xl font-bold mt-8 mb-4">Tecniche e Metodologie</p>
+        <p class="text-blue-600 font-semibold">Valutazione Posturale</p> 
+        <p>Analisi completa della postura statica e dinamica attraverso osservazione clinica e strumenti di valutazione. Identificazione degli squilibri e delle compensazioni.</p>
+        <p class="text-blue-600 font-semibold">Rieducazione Posturale Globale (RPG)</p> 
+        <p>Metodo che agisce sulle catene muscolari per il riequilibrio posturale. Approccio globale che considera il corpo come sistema integrato di catene miofasciali.</p>
+        <p class="text-blue-600 font-semibold">Ergonomia e Educazione</p> 
+        <p>Consigli per la correzione delle posture lavorative e delle attività quotidiane. Educazione posturale per prevenire recidive e mantenere i risultati ottenuti.</p>
+        <p class="text-blue-600 font-semibold">Esercizi Correttivi</p> 
+        <p>Programmi di esercizi specifici per il rinforzo dei muscoli stabilizzatori e l'allungamento delle catene retratte. Progressione graduale e personalizzata.</p>
+
+        </div>
+    </div>
+
+    <div>
+        <button @click="open === 6 ? open = null : open = 6" class="flex gap-4 items-center w-full p-6 rounded border-2 border-gray-200 text-left">
+            <iconify-icon icon="fluent:people-48-filled" width="48" height="48"  style="color: #0273e5"></iconify-icon>
+        <div>
+            <span class="text-2xl font-bold">Fisioterapia Geriatrica</span>
+            <p>Trattamenti specializzati per il mantenimento dell'autonomia nella terza età</p>
+        </div>
+        </button>
+        
+        <div
+            x-show="open === 6"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-y-75"
+            x-transition:enter-end="opacity-100 scale-y-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-y-100"
+            x-transition:leave-end="opacity-0 scale-y-75"
+            class="origin-top bg-white p-3 border-2 border-gray-200 rounded-b"
+            style="transform-origin: top;"
+            >
+    
+            <p class="text-xl font-bold mt-8 mb-4">Tecniche e Metodologie</p>
+            <p class="text-blue-600 font-semibold">Prevenzione Cadute</p> 
+            <p>Programmi specifici per migliorare equilibrio, coordinazione e reattività. Valutazione del rischio cadute e implementazione di strategie preventive personalizzate.</p>
+            <p class="text-blue-600 font-semibold">Mantenimento Mobilità</p> 
+            <p>Esercizi per preservare e migliorare la mobilità articolare e la flessibilità. Approccio graduale e sicuro adattato alle capacità individuali.</p>
+            <p class="text-blue-600 font-semibold">Rinforzo Funzionale</p> 
+            <p>Programmi di rinforzo muscolare orientati alle attività della vita quotidiana. Focus su forza, resistenza e coordinazione per mantenere l'autonomia.</p>
+            <p class="text-blue-600 font-semibold">Gestione Patologie Croniche</p> 
+            <p>Approccio multidisciplinare per la gestione di artrite, osteoporosi, problematiche cardiovascolari e neurologiche tipiche dell'età avanzata.</p>
+        </div>
+    </div>
+ </section>
+
+ <section id='contatti' class="px-6 py-20 text-white bg-[#0273e5]">
+      <h2 class="text-3xl font-bold mb-6 text-center">Non sai quale trattamento fa per te?</h2>
+      <p class="text-2xl text-gray-200 mb-10 text-center">Prenota una valutazione gratuita e insieme troveremo il percorso riabilitativo più adatto alle tue esigenze</p>
+      <div class="flex items-center justify-center mt-8">
+        <a href="#contatti" class="bg-white text-[#0273e5] px-6 py-3 rounded-lg font-semibold hover:bg-[#cee1f5] transition mr-2">Valutazione gratuita</a>
+    </div>
+ </section>
+
+<!-- Footer -->
+  <footer class="bg-gray-900 text-white py-7 px-8 w-full z-50 shadow flex flex-col gap-4">
+    <div class="flex flex-col justify-between md:flex-row sm:flex-col gap-6">
+                            <div>
+                                <div class="flex gap-[8px] items-center">
+                                <iconify-icon icon="healthicons:body-24px" width="36" height="36"  style="color: #0273e5"></iconify-icon>
+                                <h1 class="text-2xl font-bold">Dr. Mauro Bianchi</h1>
+                                </div> 
+                                <p class="max-w-md mt-4">Fisioterapista specializzato con oltre 15 anni di esperienza nella riabilitazione ortopedica e terapia manuale. Il mio obiettivo è aiutarti a ritrovare il benessere e la mobilità ottimale.</p>
+                            </div>
+                            <div class="flex gap-6">
+                              <div>
+                                <h4 class="text-lg font-bold">Contatti</h4>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="line-md:phone-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>+39 06 1234 5678</p>
+                                </div>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="tdesign:location-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>Via Roma 123, 00100 Roma</p>
+                                </div>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="flowbite:envelope-solid" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>info@maurobianchifisio.it</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold">Orari</h4>
+                                <div class="flex my-4 gap-2">
+                                    <iconify-icon icon="tabler:clock-filled" width="24" height="24"  style="color: #0273e5"></iconify-icon>
+                                    <p>Lun-Ven: 8:00-19:00<br> Sab: 8:00-13:00<br>Dom: Chiuso</p>
+                                </div>
+                            </div>
+                          </div>
+                    </div>  
+                    </div>
+                    </div>
+                </div>
+            </div>
+          </hr>
+    <p class="text-center">© 2025 Dr. Mauro Bianchi - Fisioterapista. Tutti i diritti riservati.</p>
+</footer>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>
